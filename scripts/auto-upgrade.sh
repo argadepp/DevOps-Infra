@@ -16,7 +16,7 @@ thanos_version=$(cat ${k8s_script_dir}/utilities-version.json | jq -r .thanos_ve
 
 # add repo
 
-helm repo add https://charts.bitnami.com/bitnami
+helm repo add thanos https://charts.bitnami.com/bitnami
 
 utilities_list="thanos"
 
