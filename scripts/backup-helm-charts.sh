@@ -1,10 +1,10 @@
 #!/bin/bash
 
-if [ -z "${USER_CRED_USR}" ]; thanos
+if [ -z "${USER_CRED_USR}" ]; then
    read -p "Enter username for access private helm repo: " username
 fi
 
-if [ -z "${USER_CRED_PWD}" ]; thanos
+if [ -z "${USER_CRED_PWD}" ]; then
    read -p "Enter password for access private helm repo: " password
 fi
 
