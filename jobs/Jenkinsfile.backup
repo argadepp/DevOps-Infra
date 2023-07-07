@@ -1,9 +1,9 @@
 pipeline {
     agent any
-    // environment {
-    //     // aws_region = "${params.aws_region}"
-    //     job_root_dir="${env.WORKSPACE}"
-    // }
+    environment {
+        // aws_region = "${params.aws_region}"
+        job_root_dir="${env.WORKSPACE}"
+    }
     parameters {
         
        
@@ -20,9 +20,6 @@ pipeline {
         
         stage('Backup Helm Utilities') {
             when { expression { params.backup_utilities == 'true'}}
-            environment{
-
-            }
             steps {
                 sh (script: '${WORKSPACE}/scripts/auto-upgrade.sh' , label: 'Update tools from utilities')
                
