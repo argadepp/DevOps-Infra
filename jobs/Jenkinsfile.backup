@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+    environment {
+        // aws_region = "${params.aws_region}"
+        job_root_dir="${env.WORKSPACE}"
+    }
+    parameters {
+        
+       
+         booleanParam(name: 'backup_utilities', choice: ['false','true'] , description: 'Update the utilities')
+         booleanParam(name: 'backup_thanos', defaultValue: false , description: 'Backup Thanos')
+
+    }  
+    stages {
+       stage('Getting Data'){
+       steps{
+       sh 'chmod +x "${WORKSPACE}/scripts/"' 
+       }
+       }
+        
+        stage('Backup Helm Utilities') {
+            when { expression { params.backup_utilities == 'true'}}
+            environment{
+
+            }
+            steps {
+                sh (script: '${WORKSPACE}/scripts/auto-upgrade.sh' , label: 'Update tools from utilities')
+               
+            //    withAWS(credentials: 'AWSCred' , region: 'ap-south-1') {
+                
+            //    sh(script: "${WORKSPACE}/template/script/createstack.sh")
+            //    }
+            }
+        }
+    }
+}
