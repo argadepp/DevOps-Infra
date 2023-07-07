@@ -4,6 +4,10 @@ set -x -o errexit -o pipefail
 REPO_GIT="https://argadepp.github.io/helm-chart/"
 # REPO="argadepp.github.io"
 
+k8s_script_dir="${job_root_dir}/scripts" 
+thanos_version=$(cat ${k8s_script_dir}/utilities-version.json | jq -r .thanos_version )
+
+
 run_backup_thanos() {
     bash ${WORKSPACE}/scripts/backup-helm-charts.sh "thanos" "${thanos_version}"
     helm repo update
@@ -11,12 +15,9 @@ run_backup_thanos() {
    # helm upgrade --install thanos $REPO_GIT/thanos --version "${thanos_version}" --namespace utilities --dry-run -o json | jq 
 }
 
-k8s_script_dir="${job_root_dir}/scripts" 
-thanos_version=$(cat ${k8s_script_dir}/utilities-version.json | jq -r .thanos_version )
 
 # add repo
 
-helm repo add thanos https://charts.bitnami.com/bitnami
 
 utilities_list="thanos"
 
