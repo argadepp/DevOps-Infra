@@ -12,7 +12,7 @@ run_backup_thanos() {
 }
 
 k8s_script_dir="${job_root_dir}/scripts" 
-thanos_version=$(cat ${k8s_script_dir}/utilities-versoin.json | jq -r .thanos_version )
+thanos_version=$(cat ${k8s_script_dir}/utilities-version.json | jq -r .thanos_version )
 
 # add repo
 
