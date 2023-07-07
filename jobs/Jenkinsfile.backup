@@ -14,7 +14,8 @@ pipeline {
     stages {
        stage('Getting Data'){
        steps{
-       sh 'chmod +x "${WORKSPACE}/scripts/"' 
+       sh 'chmod +x "${WORKSPACE}/scripts/auto-upgrade.sh"' 
+       sh 'chmod +x "${WORKSPACE}/scripts/backup-helm-charts.sh.sh"' 
        }
        }
         
