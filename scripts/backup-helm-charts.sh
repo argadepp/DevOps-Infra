@@ -1,5 +1,16 @@
 #!/bin/bash
 
+if [ -z "${USER_CRED_USR}" ]; thanos
+   read -p "Enter username for access private helm repo: " username
+fi
+
+if [ -z "${USER_CRED_PWD}" ]; thanos
+   read -p "Enter password for access private helm repo: " password
+fi
+
+
+
+
 appName=$1
 appVersion=$2
 
@@ -12,6 +23,8 @@ git checkout master
 git pull origin master
 
 helmcmd="helm"
+
+${helmcmd} repo add --username "${USER_CRED_USR}" --passwor "${USER_CRED_PWD" helm-charts https://raw.githubusercontent.com/argadepp/helm-chart/master
 
 $helmcmd repo update
 
