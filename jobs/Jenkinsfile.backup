@@ -7,7 +7,7 @@ pipeline {
     parameters {
         
        
-         choices(name: 'backup_utilities', choices: ['false','true'] , description: 'Update the utilities')
+         choice(name: 'backup_utilities', choices: ['false','true'] , description: 'Update the utilities')
          booleanParam(name: 'backup_thanos', defaultValue: false , description: 'Backup Thanos')
 
     }  
