@@ -24,7 +24,7 @@ git pull origin master
 
 helmcmd="helm"
 
-${helmcmd} repo add --username "${USER_CRED_USR}" --passwor "${USER_CRED_PWD" helm-charts https://raw.githubusercontent.com/argadepp/helm-chart/master
+${helmcmd} repo add --username "${USER_CRED_USR}" --passwor "${USER_CRED_PWD}" helm-charts https://raw.githubusercontent.com/argadepp/helm-chart/master
 
 $helmcmd repo update
 
