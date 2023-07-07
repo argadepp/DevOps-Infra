@@ -1,9 +1,9 @@
 pipeline {
     agent any
-    environment {
-        // aws_region = "${params.aws_region}"
-        job_root_dir="${env.WORKSPACE}"
-    }
+    // environment {
+    //     // aws_region = "${params.aws_region}"
+    //     job_root_dir="${env.WORKSPACE}"
+    // }
     parameters {
         
        
