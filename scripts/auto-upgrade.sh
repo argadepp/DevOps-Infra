@@ -11,7 +11,7 @@ run_backup_thanos() {
    # helm upgrade --install thanos $REPO_GIT/thanos --version "${thanos_version}" --namespace utilities --dry-run -o json | jq 
 }
 
-k8s_script_dir="${job_root_dir}/scripts/" 
+k8s_script_dir="${job_root_dir}/scripts" 
 thanos_version=$(cat ${k8s_script_dir}/utilities-versoin.json | jq -r .thanos_version )
 
 # add repo
