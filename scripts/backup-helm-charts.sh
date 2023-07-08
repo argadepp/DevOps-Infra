@@ -7,14 +7,11 @@ machine github.com
         password $GIT_PASSWORD
 EOF
 
-
-
-
 appName=$1
 appVersion=$2
 
 echo "app = $appName"
-echo "app version = $appVerssion"
+echo "app version = $appVersion"
 
 git clone https://github.com/argadepp/helm-chart.git
 cd helm-chart
@@ -23,7 +20,6 @@ git pull origin master
 
 helmcmd="helm"
 
-${helmcmd} repo add --username "${USER_CRED_USR}" --password "${USER_CRED_PWD}" helm-charts https://raw.githubusercontent.com/argadepp/helm-chart/master
 
 $helmcmd repo update
 
@@ -34,12 +30,14 @@ else
      git checkout -b ${appName}-${appVersion}
 
      if [ "${appName}" == "thanos" ]; then
-        rm -rf helm-chart-sources/${appName}
+        #rm -rf helm-chart-sources/${appName}
+        echo "In if"
         ${helmcmd} pull thanos/${appName} --version=${appVersion} --untar=true --untardir=./helm-chart/sources/
         ${helmcmd} package helm-chart-sources/${appName}
          sleep 10
      else
-        rm -rf helm-chart-sources/${appName}
+        echo "In else"
+        #rm -rf helm-chart-sources/${appName}
         ${helmcmd} pull stable/${appName} --version=${appVersion} --untar=true --untardir=./helm-chart/sources/
         ${helmcmd} package helm-chart-sources/${appName}
      fi
