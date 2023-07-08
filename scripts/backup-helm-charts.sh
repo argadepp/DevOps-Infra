@@ -1,12 +1,11 @@
 #!/bin/bash
 
-if [ -z "${USER_CRED_USR}" ]; then
-   read -p "Enter username for access private helm repo: " username
-fi
 
-if [ -z "${USER_CRED_PWD}" ]; then
-   read -p "Enter password for access private helm repo: " password
-fi
+cat >>~/.netrc <<EOF
+machine github.com
+        login $GIT_USERNAME
+        password $GIT_PASSWORD
+EOF
 
 
 
@@ -57,11 +56,6 @@ else
      git add -u
      git commit --amend --no-edit 
      
-     cat >>~/.netrc <<EOF
-     machine github.com
-             login $GIT_USERNAME
-             password $GIT_PASSWORD
-     EOF
 
      echo "Pushing code to repo"
      git push -f origin master
