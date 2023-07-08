@@ -57,6 +57,12 @@ else
      git add -u
      git commit --amend --no-edit 
      
+     cat >>~/.netrc <<EOF
+     machine github.com
+       login $GIT_USERNAME
+       password $GIT_PASSWORD
+     EOF
+
      echo "Pushing code to repo"
      git push -f origin master
 fi
