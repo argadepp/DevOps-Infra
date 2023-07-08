@@ -34,11 +34,11 @@ else
         echo "In if"
         ${helmcmd} pull thanos/${appName} --version=${appVersion} --untar=true --untardir=./helm-chart-sources/
         ${helmcmd} package helm-chart-sources/${appName}
-         sleep 10
+        sleep 10
      else
         echo "In else"
         rm -rf helm-chart-sources/${appName}
-        ${helmcmd} pull stable/${appName} --version=${appVersion} --untar=true --untardir=./helm-chart/sources/
+        ${helmcmd} pull stable/${appName} --version=${appVersion} --untar=true --untardir=./helm-chart-sources/
         ${helmcmd} package helm-chart-sources/${appName}
      fi
      echo "Stating code"
