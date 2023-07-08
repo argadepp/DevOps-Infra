@@ -16,7 +16,7 @@ run_backup_thanos() {
 }
 
 
-# add repo
+helm add repo thanos https://charts.bitnami.com/bitnami
 
 
 utilities_list="thanos"
