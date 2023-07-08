@@ -59,8 +59,8 @@ else
      
      cat >>~/.netrc <<EOF
      machine github.com
-       login $GIT_USERNAME
-       password $GIT_PASSWORD
+             login $GIT_USERNAME
+             password $GIT_PASSWORD
      EOF
 
      echo "Pushing code to repo"
