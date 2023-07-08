@@ -32,7 +32,7 @@ else
      if [ "${appName}" == "thanos" ]; then
         rm -rf helm-chart-sources/${appName}
         echo "In if"
-        ${helmcmd} pull thanos/${appName} --version=${appVersion} --untar=true --untardir=./helm-chart/sources/
+        ${helmcmd} pull thanos/${appName} --version=${appVersion} --untar=true --untardir=./helm-chart-sources/
         ${helmcmd} package helm-chart-sources/${appName}
          sleep 10
      else
