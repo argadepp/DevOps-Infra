@@ -644,16 +644,15 @@ query:
   ingress:
     ## @param query.ingress.enabled Enable ingress controller resource
     ##
-    enabled: true
+    enabled: false
     ## @param query.ingress.hostname Default host for the ingress resource
     ##
-    hostname:
-    - thanos-query.myeks.techwithpratik.tech
+    hostname: ""
     ## @param query.ingress.ingressClassName IngressClass that will be be used to implement the Ingress (Kubernetes 1.18+)
     ## This is supported in Kubernetes 1.18+ and required if you have more than one IngressClass marked as the default for your cluster .
     ## ref: https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/
     ##
-    ingressClassName: "nginx"
+    ingressClassName: ""
     ## @param query.ingress.annotations Additional annotations for the Ingress resource. To enable certificate autogeneration, place here your cert-manager annotations.
     ## For a full list of possible ingress annotations, please see
     ## ref: https://github.com/kubernetes/ingress-nginx/blob/master/docs/user-guide/nginx-configuration/annotations.md
