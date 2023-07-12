@@ -10,6 +10,7 @@ pipeline {
          choice(name: 'backup_utilities', choices: ['false','true'] , description: 'Update the utilities')
          booleanParam(name: 'backup_thanos', defaultValue: false , description: 'Backup Thanos')
          booleanParam(name: 'backup_prom', defaultValue: false , description: 'Backup Prometheus')
+         booleanParam(name: 'backup_argo', defaultValue: false , description: 'Backup argo')
 
     }  
     stages {
