@@ -28,8 +28,7 @@ run_backup_prom() {
 helm repo add thanos https://charts.bitnami.com/bitnami
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 
-utilities_list="thanos \
-                prom"
+utilities_list="thanos"
 
 for utility_name in ${utilities_list}; do
     toggle_variable="backup_${utility_name}"
