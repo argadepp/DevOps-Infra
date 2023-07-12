@@ -1,4 +1,4 @@
 {
-    "thanos_version":"12.8.3",
+    "thanos_version":"12.8.2",
     "prom_version":"40.5.0"
 }
