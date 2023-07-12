@@ -35,12 +35,12 @@ else
         ${helmcmd} pull thanos/${appName} --version=${appVersion} --untar=true --untardir=./helm-chart-sources/
         ${helmcmd} package helm-chart-sources/${appName}
         sleep 10
-     elif [ "${appName}" == "prom" ]; then
-        rm -rf helm-chart-sources/kube-prometheus-stack
-        echo "In if"
-        ${helmcmd} pull prometheus-community/kube-prometheus-stack --version=${appVersion} --untar=true --untardir=./helm-chart-sources/
-        ${helmcmd} package helm-chart-sources/kube-prometheus-stack
-        sleep 10        
+     # elif [ "${appName}" == "prom" ]; then
+     #    rm -rf helm-chart-sources/kube-prometheus-stack
+     #    echo "In if"
+     #    ${helmcmd} pull prometheus-community/kube-prometheus-stack --version=${appVersion} --untar=true --untardir=./helm-chart-sources/
+     #    ${helmcmd} package helm-chart-sources/kube-prometheus-stack
+     #    sleep 10        
      else
         echo "In else"
         rm -rf helm-chart-sources/${appName}
