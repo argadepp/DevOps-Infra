@@ -40,7 +40,13 @@ else
         echo "In if"
         ${helmcmd} pull prometheus-community/kube-prometheus-stack --version=${appVersion} --untar=true --untardir=./helm-chart-sources/
         ${helmcmd} package helm-chart-sources/kube-prometheus-stack
-        sleep 10        
+        sleep 10     
+     elif [ "${appName}" == "argo" ]; then
+        rm -rf helm-chart-sources/argo-cd
+        echo "In if"
+        ${helmcmd} pull argo/argo-cd --version=${appVersion} --untar=true --untardir=./helm-chart-sources/
+        ${helmcmd} package argo/argo-cd
+        sleep 10           
      else
         echo "In else"
         rm -rf helm-chart-sources/${appName}
