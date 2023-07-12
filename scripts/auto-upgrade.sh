@@ -7,7 +7,7 @@ REPO_GIT="https://argadepp.github.io/helm-chart/"
 k8s_script_dir="${job_root_dir}/scripts" 
 thanos_version=$(cat ${k8s_script_dir}/utilities-version.json | jq -r .thanos_version )
 prom_version=$(cat ${k8s_script_dir}/utilities-version.json | jq -r .prom_version )
-
+argo_version=$(cat ${k8s_script_dir}/utilities-version.json | jq -r .argo_version )
 
 run_backup_thanos() {
     bash ${WORKSPACE}/scripts/backup-helm-charts.sh "thanos" "${thanos_version}"
