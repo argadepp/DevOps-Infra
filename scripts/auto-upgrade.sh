@@ -32,8 +32,8 @@ utilities_list="thanos \
                 prom"
 
 for utility_name in ${utilities_list}; do
-    toggle_version="backup_${utility_name}"
-    if [[ "${!toggle_version}" == true ]]; then
+    toggle_variable="backup_${utility_name}"
+    if [[ "${!toggle_variable}" == true ]]; then
          run_backup_${utility_name}
     else 
         echo "Skipping update of '${utility_name}'. Value of '${toggle_variable}' is '${!toggle_variable}' "
