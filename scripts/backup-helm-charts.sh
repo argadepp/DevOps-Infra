@@ -45,7 +45,7 @@ else
         rm -rf helm-chart-sources/argo-cd
         echo "In if"
         ${helmcmd} pull argo/argo-cd --version=${appVersion} --untar=true --untardir=./helm-chart-sources/
-        ${helmcmd} package argo/argo-cd
+        ${helmcmd} package helm-chart-sources/argo-cd
         sleep 10           
      else
         echo "In else"
