@@ -1,4 +1,5 @@
 {
     "thanos_version":"12.8.2",
-    "prom_version":"40.5.0"
+    "prom_version":"40.5.0",
+    "argo_version":"5.37.1"
 }
