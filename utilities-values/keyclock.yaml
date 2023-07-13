@@ -1025,7 +1025,7 @@ postgresql:
   auth:
     postgresPassword: "password"
     username: bn_keycloak
-    password: "password"
+    password: ""
     database: bitnami_keycloak
     existingSecret: ""
   architecture: standalone
@@ -1048,7 +1048,7 @@ externalDatabase:
   port: 5432
   user: bn_keycloak
   database: bitnami_keycloak
-  password: "password"
+  password: ""
   existingSecret: ""
   existingSecretHostKey: ""
   existingSecretPortKey: ""
