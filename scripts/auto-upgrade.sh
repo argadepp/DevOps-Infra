@@ -1,4 +1,4 @@
-#!/bin/bash
+
 
 set -x -o errexit -o pipefail
 REPO_GIT="https://argadepp.github.io/helm-chart/"
