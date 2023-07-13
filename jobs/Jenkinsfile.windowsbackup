@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+    environment {
+        // aws_region = "${params.aws_region}"
+        job_root_dir="${env.WORKSPACE}"
+      PATH = "C:\\Program Files\\Git\\dell\\bin;C:\\Program Files\\Git\\bin;${env.PATH}"
+    }
+    parameters {
+        
+       
+         choice(name: 'backup_utilities', choices: ['false','true'] , description: 'Update the utilities')
+         booleanParam(name: 'backup_thanos', defaultValue: false , description: 'Backup Thanos')
+         booleanParam(name: 'backup_prom', defaultValue: false , description: 'Backup Prometheus')
+         booleanParam(name: 'backup_argo', defaultValue: false , description: 'Backup argo')
+
+    }  
+    stages {
+       stage('Getting Data'){
+       steps{
+       sh 'chmod +x "${WORKSPACE}/scripts/auto-upgrade.sh"' 
+       sh 'chmod +x "${WORKSPACE}/scripts/backup-helm-charts.sh"' 
+       }
+       }
+        
+        stage('Backup Helm Utilities') {
+            when { expression { params.backup_utilities == 'true'}}
+            steps {
+                sh (script: '${WORKSPACE}/scripts/auto-upgrade.sh' , label: 'Update tools from utilities')
+               
+            //    withAWS(credentials: 'AWSCred' , region: 'ap-south-1') {
+                
+            //    sh(script: "${WORKSPACE}/template/script/createstack.sh")
+            //    }
+            }
+        }
+    }
+}
