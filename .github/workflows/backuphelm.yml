@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Get WD
-        run: echo ${GITHUB_WORKSPACE}
+        run: echo ${GITHUB_WORKSPACE} && pwd
         shell: bash
       - name: Run build script
         run: ${GITHUB_WORKSPACE}/scripts/auto-upgrade.sh
