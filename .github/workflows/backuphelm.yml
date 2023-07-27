@@ -5,9 +5,9 @@ jobs:
   backup-job:
     runs-on: ubuntu-20.04
     steps:
-      - name: Get WD
-        run: ls -lhrt
-        shell: bash
+      - name: Checkout
+      - uses: actions/checkout@v1
+
       - name: Run build script
         run: ${GITHUB_WORKSPACE}/scripts/auto-upgrade.sh
         shell: bash
