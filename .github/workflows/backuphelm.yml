@@ -5,6 +5,10 @@ jobs:
   backup-job:
     runs-on: ubuntu-20.04
     steps:
+      - name: Get WD
+        run: echo ${GITHUB_WORKSPACE}
+        shell: bash
       - name: Run build script
         run: ${GITHUB_WORKSPACE}/scripts/auto-upgrade.sh
         shell: bash
+        
