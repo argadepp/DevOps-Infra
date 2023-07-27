@@ -1,14 +1,14 @@
-name: backup
-on: push
-  
-jobs:
-  backup-job:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v1
-      - run: chmod +x ${GITHUB_WORKSPACE}/scripts/auto-upgrade.sh
+name: called
+on:
+  workflow_call:
+    inputs:
+      x:
+        type: boolean
 
-      - name: Run build script
-        run: ${GITHUB_WORKSPACE}/scripts/auto-upgrade.sh
-        shell: bash
+jobs:
+  test1:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo '${{inputs.x}}'
+      if: ${{inputs.x}}
         
