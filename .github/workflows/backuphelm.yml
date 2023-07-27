@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v1
-      - run: chmod +x ${GITHUB_WORKSPACE}/scripts/
+      - run: chmod +x ${GITHUB_WORKSPACE}/scripts/auto-upgrade.sh
 
       - name: Run build script
         run: ${GITHUB_WORKSPACE}/scripts/auto-upgrade.sh
