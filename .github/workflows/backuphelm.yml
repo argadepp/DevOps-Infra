@@ -1,0 +1,14 @@
+name: called
+on:
+  workflow_call:
+    inputs:
+      x:
+        type: boolean
+
+jobs:
+  test1:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo '${{inputs.x}}'
+      if: ${{inputs.x}}
+        
