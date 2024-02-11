@@ -559,7 +559,7 @@ ingress:
   apiVersion: ""
   ## @param ingress.hostname Default host for the ingress record (evaluated as template)
   ##
-  hostname: keyclock.myeks.techwithpratik.tech
+  hostname: keycloak.myeks.techwithpratik.tech
   ## @param ingress.path [string] Default path for the ingress record (evaluated as template)
   ##
   path: "{{ .Values.httpRelativePath }}"
