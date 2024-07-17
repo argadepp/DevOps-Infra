@@ -15,6 +15,20 @@ pipeline {
                 sh 'mvn clean install'
             }
         }
+        stage('Docker login') {
+            steps {
+                // Run Maven clean install
+                sh 'docker login ghcr.io -u $DUSERNAME -p $DPASSWORD'
+
+            }
+        }
+          stage('Build Docker Image') {
+            steps {
+                // Run Maven clean install
+                sh 'docker login ghcr.io -u $DUSERNAME -p $DPASSWORD'
+                sh 'docker build -t ghcr.io/argadepp/usercred:new'
+            }
+        }
     }
 
     post {
