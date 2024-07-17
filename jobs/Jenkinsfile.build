@@ -18,7 +18,7 @@ pipeline {
         stage('Docker login') {
             steps {
                 // Run Maven clean install
-                sh 'docker login ghcr.io -u $DUSERNAME -p $DPASSWORD'
+             sh (script: '${WORKSPACE}/scripts/docker-login.sh' , label: 'login to ghcr.io')
 
             }
         }
