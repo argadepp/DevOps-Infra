@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        // Install the Maven version configured in Jenkins Global Tool Configuration
-        maven 'Maven'
-    }
-
     stages {
         stage('Clone Repository') {
             steps {
