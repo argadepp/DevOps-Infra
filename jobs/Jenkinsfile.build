@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    tools {
+        // Install the Maven version configured in Jenkins Global Tool Configuration
+        maven 'Maven'
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                // Clone the Git repository
+                git 'https://github.com/argadepp/Spring-boot-docker-img.git'
+            }
+        }
+
+        stage('Build with Maven') {
+            steps {
+                // Run Maven clean install
+                sh 'mvn clean install'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build successful!'
+        }
+        failure {
+            echo 'Build failed!'
+        }
+    }
+}
