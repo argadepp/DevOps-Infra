@@ -50,7 +50,7 @@ environment {
             steps {
                 // Run Maven clean install
                
-                sh 'docker push ghcr.io/argadepp/usercred:new'
+                sh 'docker push ghcr.io/argadepp/usercred:"$version_arg"'
             }
         }        
     }
