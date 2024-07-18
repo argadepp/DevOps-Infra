@@ -34,9 +34,6 @@ environment {
             }
         }
     
-
-
-        }
           stage('Build Docker Image') {
             steps {
                 // Run Maven clean install
