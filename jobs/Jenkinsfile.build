@@ -18,14 +18,14 @@ pipeline {
         stage('Docker login') {
             steps {
                 // Run Maven clean install
-             sh (script: '${WORKSPACE}/scripts/docker-login.sh' , label: 'login to ghcr.io')
+              sh 'echo $GHCR_TOKEN | docker login ghcr.io -u $GHCR_USERNAME --password-stdin'
 
             }
         }
           stage('Build Docker Image') {
             steps {
                 // Run Maven clean install
-                sh 'echo $GHCR_TOKEN | docker login ghcr.io -u $GHCR_USERNAME --password-stdin'
+               
                 sh 'docker build -t ghcr.io/argadepp/usercred:new'
             }
         }
