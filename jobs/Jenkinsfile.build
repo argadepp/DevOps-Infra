@@ -51,4 +51,4 @@ environment {
             echo 'Build failed!'
         }
     }
-
+}
