@@ -6,7 +6,12 @@ environment {
         DOCKER_USERNAME = 'argadepp'
     }
 
+    parameters {
+        
+       
+         string(name: 'version_arg', , description: 'Enter the version of image')
 
+    } 
 
 
 
@@ -38,7 +43,7 @@ environment {
             steps {
                 // Run Maven clean install
                
-                sh 'docker build -t ghcr.io/argadepp/usercred:new .'
+                sh 'docker build -t ghcr.io/argadepp/usercred:"$version_arg" .'
             }
         }
           stage('Push Docker Image') {
