@@ -38,9 +38,16 @@ environment {
             steps {
                 // Run Maven clean install
                
-                sh 'docker build -t ghcr.io/argadepp/usercred:new'
+                sh 'docker build -t ghcr.io/argadepp/usercred:new .'
             }
         }
+          stage('Push Docker Image') {
+            steps {
+                // Run Maven clean install
+               
+                sh 'docker push ghcr.io/argadepp/usercred:new'
+            }
+        }        
     }
 
     post {
