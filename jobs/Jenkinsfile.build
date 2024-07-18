@@ -6,15 +6,8 @@ environment {
         DOCKER_USERNAME = 'argadepp'
     }
 
-    stages {
-        stage('Docker Login') {
-            steps {
-                // Retrieve the secret text and use it for docker login
-                withCredentials([string(credentialsId: 'GHCR_TOKEN', variable: 'DOCKER_REGISTRY_TOKEN')]) {
-                    sh 'echo $DOCKER_REGISTRY_TOKEN | docker login $DOCKER_REGISTRY_URL -u $DOCKER_USERNAME --password-stdin'
-                }
-            }
-        }
+
+
 
 
     stages {
@@ -22,6 +15,15 @@ environment {
             steps {
                 // Clone the Git repository
                 git 'https://github.com/argadepp/Spring-boot-docker-img.git'
+            }
+        }
+
+        stage('Docker Login') {
+            steps {
+                // Retrieve the secret text and use it for docker login
+                withCredentials([string(credentialsId: 'GHCR_TOKEN', variable: 'DOCKER_REGISTRY_TOKEN')]) {
+                    sh 'echo $DOCKER_REGISTRY_TOKEN | docker login $DOCKER_REGISTRY_URL -u $DOCKER_USERNAME --password-stdin'
+                }
             }
         }
 
